@@ -1,0 +1,109 @@
+@import "variables";
+
+#header {
+  position: absolute;
+  width: 100%;
+  transform: translateY(-60px);
+  font-size: 20px;
+  z-index: 100;
+  background: $maroon-transparent;
+
+  .inside {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: $max-width;
+    margin: 0 auto;
+    .nav-header {
+      width: 77%;
+      margin-top: 70px;
+      position: relative;
+      ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 50px;
+        text-transform: uppercase;
+        li {
+          font-size: 19px;
+          strong {
+            color: $mediumslateblue;
+            font-weight: 500;
+            border-bottom: 2px solid;
+          }
+          a {
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            &:before {
+              transform: scaleX(0);
+              transform-origin: bottom right;
+            }
+            &:hover:before {
+              transform: scaleX(1);
+              transform-origin: bottom left;
+            }
+            &:before {
+              content: " ";
+              display: block;
+              position: absolute;
+              top: 0; right: 0; bottom: 0; left: 0;
+              inset: 0 0 0 0;
+              background: $mediumslateblue;
+              z-index: -1;
+              transition: transform .3s ease;
+            }
+          }
+        }
+      }
+    }
+    .mod_form {
+      margin-top: 130px;
+      transform: translateY(-48px);
+      position: relative;
+      top: 0;
+      right: 0;
+      z-index: 10;
+    }
+  }
+}
+
+.search_animation input {
+  border-radius: 50px;
+  border: 1px solid #fff;
+  transition: all 250ms ease-in-out;
+  background-color: transparent;
+  color: #fff;
+  outline: 0;
+
+  &:focus, &:hover {
+    outline: 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+    background-position: 100% center;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid white;
+  }
+}
+
+.widget.widget-submit.search input.submit {
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  width: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  filter: invert(1);
+}
+
+@media screen and (max-width: 867px) {
+  #header .inside .nav-header {
+    display: none;
+  }
+}
+

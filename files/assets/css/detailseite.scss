@@ -1,0 +1,170 @@
+@import "variables";
+.mod_eventlist.block, .event.layout_full{
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.event.layout_full{
+  text-align: center;
+  h1, h2 {
+    background-color: #798cc4;
+    display: inline-block;
+    color: white;
+    padding: 3px 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  h2 {
+    background: $maroon-transparent;
+  }
+  p {
+    text-align: left;
+    line-height: 1.5em;
+    font-size: 20px;
+  }
+}
+
+.event.layout_list {
+  background:$mediumslateblue;
+  padding: 15px 20px 50px 20px;
+  margin-bottom: 20px;
+
+  h2 a {
+    color: #fff;
+    font-size: 32px;
+    line-height: 133%;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: filter 250ms;
+    &:hover {
+     color: $maroon-transparent
+    }
+  }
+  .location {
+    color: white;
+    text-transform: uppercase;
+  }
+  .ce_text {
+    padding-left: 33px;
+    position: relative;
+    color: white;
+    &:before {
+      content: '»';
+      position: absolute;
+      left: 0;
+      top: 15px;
+      font-size: 28px;
+    }
+    p {
+      color: white;
+      font-size: 21px;
+      margin-bottom: 5px;
+      line-height: 130%;
+    }
+  }
+}
+
+.back {
+  margin-top: 15px;
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    position: relative;
+    background-color: $maroon-transparent;
+    display: inline-block;
+    padding: 8px 45px;
+    border-radius: 7px;
+    transition: filter 250ms;
+    &:hover {
+      filter: brightness(1.8);
+    }
+  }
+}
+
+.ce_sliderStart {
+
+}
+
+.detail .slider-control{
+  position: absolute;
+  transform: translateY(-50%);
+  width: 100%;
+  top: 69%;
+  .slider-prev-detail {
+    left: -6%;
+    width: 45px;
+  }
+  .slider-next-detail {
+    right: 9%;
+    width: 45px;
+  }
+}
+
+.mod_faqlist{
+  h2 {
+    color: $maroon;
+    padding: 3px 12px;
+    font-weight: 300;
+    margin-top: 20px;
+    border-bottom: 2px dotted #000;
+  }
+  ul {
+    list-style: disc;
+    color: black;
+    margin-left: 15px;
+    li {
+      a {
+        text-decoration: none;
+        font-size: 19px;
+        color: $mediumslateblue;
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+.mod_faqreader, .mod_faqlist {
+  width: 90%;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.mod_faqreader  {
+  h1 {
+    color: rgb(77,36,42);
+  }
+  .ce_text p {
+    line-height: 1.5em;
+    font-size: 20px;
+  }
+}
+
+.ce_youtube {
+  h2 {
+    color: rgb(77,36,42);
+  }
+}
+
+.daymonth {
+  color: white;
+}
+
+@media screen and (max-width: 867px) {
+  .detail .slider-control {
+    top: 80%;
+    .slider-prev-detail{
+      width: 35px;
+      left: 3%;
+      filter: invert(1);
+    }
+    .slider-next-detail {
+      right: 13%;
+      width: 35px;
+      filter: invert(1);
+    }
+  }
+}
