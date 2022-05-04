@@ -10,6 +10,7 @@
   object-fit: cover;
 }
 
+
 .teaser-text {
   position: absolute;
   width: 100%;
@@ -26,8 +27,9 @@
   p {
     display: inline;
     background-color: $maroon;
-    line-height: 1.4em;
+    line-height: 1.9em;
     font-size: 20px;
+    padding: 5px;
     font-family: "Barlow", sans-serif;
     .p-span {
       padding: 2px 12px;
@@ -37,27 +39,24 @@
 
 
 .box-wrapper, .box-wrapper-new {
-  position: absolute;
-  bottom: 18px;
   display: flex;
   justify-content: space-around;
   width: 90%;
   max-width: $max-width;
-  transform: translateX(-50%);
-  left: 50%;
+  margin: 40px auto;
 }
 
 .box-left, .box-middle, .box-right {
-  background: $mediumslateblue-transparent;
+  background: $mediumslateblue;
   text-align: center;
   color: white;
-  padding: 0 9px;
+  padding: 22px  9px;
   width: 30%;
   font-size: 21px;
   h3 {
     border-top: 1px solid;
-    padding-top: 3px;
-    margin-top: -15px;
+    padding-top: 9px;
+    margin-top: 6px;
     font-weight: normal;
     a {
       color: white;
@@ -71,7 +70,7 @@
         content: "";
         display: block;
         position: absolute;
-        left: -26px;
+        left: -23px;
         top: 3px;
         width: 30px;
         height: 23px;
@@ -111,6 +110,27 @@
   }
 }
 
+.download {
+  .ce_text {
+    h2 {
+      background-color: #798cc4;
+      display: inline-block;
+      padding: 6px 12px;
+      font-weight: 700;
+      color: white;
+    }
+    h3 {
+      color: $maroon;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.download p, .buch .ce_text p, .information p {
+  font-weight: 300;
+  font-size: 22px;
+}
+
 .menu-text {
   margin: 50px auto;
   width: 90%;
@@ -125,10 +145,10 @@
       color: white;
       a {
         text-decoration: none;
-        color: black;
+        color: $maroon;
         transition: color 250ms;
         &:hover {
-          color: white;
+          color: black;
         }
       }
 
@@ -153,6 +173,10 @@
   }
 }
 
+.menu-text .button p a {
+  color: black;
+}
+
 .button, .button1, .button-new, .back {
   text-align: center;
   margin-bottom: 20px;
@@ -166,14 +190,14 @@
     a {
       text-decoration: none;
       color: $mediumslateblue;
-      font-size: 17px;
+      font-size: 20px;
       position: relative;
       &:before {
         content: "";
         display: block;
         position: absolute;
         left: -28px;
-        top: 1px;
+        top: 3px;
         width: 30px;
         height: 23px;
         background: url("/files/assets/layout/Pfeil-blue.svg") no-repeat;
@@ -251,7 +275,7 @@ iframe {
 }
 
 .box-left1, .box-middle1, .box-right1 {
-  background: rgba(121, 140, 196, 0.5);
+  background: $mediumslateblue;
   text-align: center;
   color: white;
   padding: 0 35px;
@@ -261,6 +285,9 @@ iframe {
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
+    &:hover {
+      color: #4e111e;
+    }
   }
 }
 
@@ -276,13 +303,20 @@ iframe {
     }
   }
   .teaser-menü p {
-    color: $maroon;
+    color: black;
   }
+}
+
+.infos .teaser-menü, .infos .ce_image {
+  text-align: left;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
 }
 
 .text-box {
   width: 90%;
-  max-width: 1000px;
+  max-width: $max-width;
   margin: 46px auto;
   display: flex;
   flex-wrap: wrap;
@@ -331,24 +365,19 @@ iframe {
   }
 }
 
-.download {
+.download, .buch, .events {
   width: 90%;
-  margin: 0 auto;
+  margin: 20px auto;
   max-width: $max-width;
 }
 
-.download-image {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 50px auto;
-  width: 65%;
-}
-
-.ce_downloads {
+.download-image{
+  margin: 40px auto;
   ul {
-  box-shadow: 0 0 10px black;
-  margin: 0px 4px;
-    li a {
+   display: flex;
+    justify-content: space-around;
+    li{
+     a {
       height: 30px;
       display: inline-block;
       align-items: center;
@@ -375,6 +404,7 @@ iframe {
         background: $maroon;
       }
     }
+    }
   }
 }
 
@@ -385,7 +415,7 @@ iframe {
     border: 1px solid #000;
     padding: 8px 35px;
     text-decoration: none;
-    color: #000;
+    color:$mediumslateblue;
     position: relative;
     text-transform: uppercase;
     transition: background-color 250ms;
@@ -397,31 +427,36 @@ iframe {
       top: 9px;
       width: 30px;
       height: 23px;
-      background: url("/files/assets/layout/download.svg") no-repeat;
+      background: url("/files/assets/layout/Pfeil-blue.svg") no-repeat;
       background-size: auto;
     }
     &:hover {
       background-color: #798cc4;
     }
   }
-
 }
 
 .störer-circle {
   position: absolute;
   z-index: 99;
-  width: 115px;
+  width: 300px;
   max-width: 100%;
-  left: 80%;
-  right: 0;
-  top: 37vw;
+  left: 83%;
+  top: 68vh;
   img {
-    width: 130px;
+    width: 140px;
     border-radius: 50%;
-    box-shadow: 0px -3px 10px rgba(0,0,0,0.08);
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
     background: #fff;
+    transition: 0.4s;
+    &:hover {
+      rotate: -20deg;
+      cursor: pointer;
+    }
   }
 }
+
+
 
 @media screen and (max-width: 867px) {
   .menu-text {
@@ -494,6 +529,15 @@ iframe {
   .störer-circle {
     display: none;
   }
+  .ce_downloads ul li a {
+    font-size: 17px;
+  }
+  .download-image ul li a {
+    margin: 1px 1px auto;
+  }
+  .box-wrapper, .box-wrapper-new {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -506,5 +550,6 @@ iframe {
   #header .inside .nav-header {
     display: none;
   }
+
 
 }

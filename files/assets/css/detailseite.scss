@@ -1,7 +1,7 @@
 @import "variables";
-.mod_eventlist.block, .event.layout_full{
+.event.layout_full{
   width: 90%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .event.layout_full{
@@ -151,6 +151,64 @@
 
 .daymonth {
   color: white;
+}
+
+.information, .buch .main-text {
+  h2 {
+    padding: 3px 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: #798cc4;
+    display: inline-block;
+    color: white;
+  }
+  h3 {
+    color: $maroon;
+    text-transform: uppercase;
+  }
+  a {
+    text-decoration: none;
+    color:$mediumslateblue;
+    text-transform: uppercase;
+    transition: color 250ms;
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.main-text ul, .information ul {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.review {
+  ul {
+    li {
+      font-weight: 300;
+      font-size: 22px;
+      font-style: normal;
+      margin-left: 35px;
+      a, strong{
+        text-decoration: none;
+        color: black;
+        position: relative;
+        transition: color 250ms;
+        &:before {
+          color: $mediumslateblue;
+          font-weight: 400;
+          content: '»';
+          position: absolute;
+          margin-left: -32px;
+          font-size: 40px;
+          margin-top: -3px;
+        }
+        &:hover {
+          color: #f39100;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 867px) {

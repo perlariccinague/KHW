@@ -15,7 +15,7 @@
     max-width: $max-width;
     margin: 0 auto;
     .nav-header {
-      width: 77%;
+      width: 80%;
       margin-top: 70px;
       position: relative;
       ul {
@@ -26,7 +26,7 @@
         bottom: 50px;
         text-transform: uppercase;
         li {
-          font-size: 19px;
+          font-size: 20px;
           strong {
             color: $mediumslateblue;
             font-weight: 500;
@@ -61,7 +61,7 @@
     }
     .mod_form {
       margin-top: 130px;
-      transform: translateY(-48px);
+      transform: translateY(-43px);
       position: relative;
       top: 0;
       right: 0;
@@ -77,14 +77,17 @@
   background-color: transparent;
   color: #fff;
   outline: 0;
+  width: 155px;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  padding-left: 8px;
 
   &:focus, &:hover {
     outline: 0;
     border: 1px solid transparent;
     border-radius: 0;
     background-position: 100% center;
-    padding-bottom: 3px;
-    margin-bottom: 3px;
+
     border-bottom: 1px solid white;
   }
 }
