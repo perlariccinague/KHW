@@ -12,9 +12,10 @@
 .description-slider {
   position: relative;
   img {
-    height: 100vh;
+    height: 60vh;
     width: 100%;
     object-fit: cover;
+    object-position: top;
   }
   .description-new {
     text-align: center;
@@ -128,12 +129,16 @@
   .banner-image, .banner-image1 {
     display: none;
   }
+  .teaser-text {
+    bottom: initial;
+    top: 40%;
+  }
   .description-slider .teaser-text {
     h2 em {
-      font-size: 18px;
+      font-size: 25px;
     }
-    p{
-      font-size: 16px;
+    p {
+      font-size: 20px;
     }
   }
 
