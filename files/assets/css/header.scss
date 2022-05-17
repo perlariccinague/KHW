@@ -11,6 +11,7 @@
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       padding: 8px 0;
       .ce_text {
@@ -104,9 +105,14 @@
               }
             }
           }
-          li.submenu:hover {
-            .level_2 {
-              left: unset;
+          li.submenu {
+            > a {
+              pointer-events: none;
+            }
+            &:hover {
+              .level_2 {
+                left: unset;
+              }
             }
           }
         }
@@ -141,6 +147,9 @@
 
     border-bottom: 1px solid white;
   }
+  &::placeholder {
+    color: white;
+  }
 }
 
 .widget.widget-submit.search input.submit {
@@ -160,13 +169,26 @@
     display: none;
   }
   #header .header-logo-background .header-logo .ce_image {
-    width: 50%;
-    figure img {
-      height: 30px;
+    &:first-child {
+      width: 75%;
+      figure img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    &:nth-child(2) {
+      height: 60px;
+      figure {
+        height: 100%;
+        text-align: right;
+        img {
+          height: 100%;
+        }
+      }
     }
   }
   #header .header-logo-background .header-logo .ce_text p {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 

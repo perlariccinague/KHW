@@ -1,6 +1,7 @@
 @import "variables";
 
 #footer {
+  margin-top: 80px;
   background: $maroon;
   .inside {
     width: 90%;
@@ -10,6 +11,16 @@
 }
 .footer-desktop {
   display: block;
+}
+
+.footer-collab {
+  display: flex;
+  width: 55%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.footer-collab > div {
+  width: 23%;
 }
 
 .footer-mobile {
@@ -114,6 +125,23 @@
 
 }
 
+.initiative-logos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.initiative-logos > div {
+  width: 45%;
+}
+
+.footer-top > div {
+  width: 48%;
+}
+
+.full-width,.full-width img {
+  width: 100%;
+}
+
 @media screen and (max-width: 867px) {
   #footer p {
     text-align: center;
@@ -156,6 +184,14 @@
       cursor: pointer;
 
     }
+  }
+
+  .footer-collab {
+    width: 100%;
+  }
+  .footer-collab > div {
+    width: 50%;
+    margin-top: 0;
   }
 
 }

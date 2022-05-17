@@ -81,12 +81,16 @@
   font-size: 15px;
 }
 
+#contact-form.event-form .formbody .widget label {
+  width: 100%;
+}
+
+#contact-form.event-form .formbody .widget input[type="radio"] {
+  width: 20px;
+}
 
 
 @media screen and (max-width: 867px) {
-  .contact .teaser-menü h2 em, .teaser-menü1 h2 em {
-    font-size: 21px;
-  }
   .teaser-menü, .teaser-menü1 {
     margin-top: 0;
   }

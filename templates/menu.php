@@ -42,15 +42,10 @@
         </li>
 
         <li>
-            <section class="ce_accordionSingle ce_accordion ce_text block">
-                <div class="toggler ui-accordion-header ui-corner-top ui-state-default ui-accordion-icons " role="tab" id="ui-id-1" aria-controls="ui-id-2" tabindex="0">
-                    <span>Die Make-Sense-Kampagne</span></div>
-                <div class="accordion ui-accordion-content ui-corner-bottom ui-helper-reset " style="display: block;" id="ui-id-2" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false">
-                    <div>
-                        {{insert_module::30}}
-                    </div>
-                </div>
-            </section>
+
+            <div>
+                {{insert_module::34}}
+            </div>
         </li>
 
         <li>
