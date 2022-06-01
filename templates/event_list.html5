@@ -1,25 +1,25 @@
 
 <div class="event layout_list<?= $this->classList ?>">
 	 <p class="time">
-            <span class="daymonth">
+            Datum der Veranstaltung: <span class="daymonth">
               <?= $this->parseDate("j.", $this->startDate); ?>
               <?= $this->parseDate("m", $this->startDate); ?>
-              <?php if ($this->endDate && $this->endDate !== $this->startDate): ?> - 
+              <?php if ($this->endDate && $this->endDate !== $this->startDate): ?> -
                <?= $this->parseDate('j.', $this->endDate)?>
                <?= $this->parseDate('m', $this->endDate); ?>
               <?php elseif($this->parseDate('H:i', $this->startTime) !== '00:00'): ?>
                 </span><br>
-                <span>
-                    <?= $this->parseDate('H:i', $this->startTime); ?>
+                Uhrzeit: <span>
+                    <?= $this->parseDate('H:i', $this->startTime); ?><?php if($this->endTime): ?> - <?= $this->parseDate('H:i', $this->endTime); ?><?php endif; ?>
                 </span>
               <?php else: ?>
             </span>
               <?php endif; ?>
         </p>
 
-  <h2><a href="<?= $this->href ?>" title="<?= $this->title ?> (<?php if ($this->day): ?><?= $this->day ?>, <?php endif; ?><?= $this->date ?><?php if ($this->time): ?> <?= $this->time ?><?php endif; ?>)"<?= $this->target ?>><?= $this->link ?></a></h2>
- 
- 
+  <h2><?= $this->link ?></h2>
+
+
  <?php if ($this->location): ?>
     <p class="location"><?= $this->location ?><?php if ($this->address): ?> (<?= $this->address ?>)<?php endif; ?></p>
   <?php endif; ?>

@@ -12,9 +12,10 @@
 .description-slider {
   position: relative;
   img {
-    height: 100vh;
+    height: 60vh;
     width: 100%;
     object-fit: cover;
+    object-position: top;
   }
   .description-new {
     text-align: center;
@@ -128,12 +129,31 @@
   .banner-image, .banner-image1 {
     display: none;
   }
-  .description-slider .teaser-text {
-    h2 em {
-      font-size: 18px;
-    }
-    p{
-      font-size: 16px;
+  .teaser-text {
+    bottom: initial;
+    top: 40%;
+  }
+  .ce_text.description-slider {
+    position: absolute;
+    top: 45vh;
+    .teaser-text {
+      h2 {
+        padding: 2px 8px;
+        box-decoration-break: clone;
+        em {
+          font-size: 25px;
+          font-weight: bold;
+        }
+      }
+      p {
+        font-size: 20px;
+        span {
+          background: white;
+          font-weight: bold;
+          padding: 2px 8px;
+          box-decoration-break: clone;
+        }
+      }
     }
   }
 

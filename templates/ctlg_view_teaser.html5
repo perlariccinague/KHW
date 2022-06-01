@@ -1,0 +1,46 @@
+<a href="<?= $this->masterUrl ?>?category=<?= $this->alias ?>">
+    <div class="ctlg_teaser block<?= $this->cssClass ?>">
+
+	<?php if( $this->masterUrl ): ?>
+	    <h3><?= $this->title; ?></h3>
+	<?php else: ?>
+        <h3><?= $this->title; ?></h3>
+    <?php endif; ?>
+	<p>
+      <?= $this->street ?> <?= $this->housenumber ?><br>
+        <?= $this->plz ?> <?= $this->city ?><br>
+    </p>
+
+	<?php if ( !empty( $this->operations ) && is_array( $this->operations ) ): ?>
+	<ul class="operations">
+		<?php foreach( $this->operations as $arrOperation ): ?>
+    	<li class="<?= $arrOperation['class'] ?>">
+        	<a href="<?= $arrOperation['href'] ?>" title="<?= $arrOperation['title']; ?>" <?= $arrOperation['attributes'] ?>>
+				<span class="ctlg_operation_icon"><?= $arrOperation['image']; ?></span> <?= $arrOperation['title']; ?>
+            </a>
+		</li>
+		<?php endforeach; ?>
+   </ul>
+   <?php endif; ?>
+
+   <?php if ( !empty( $this->relations ) && is_array( $this->relations ) ): ?>
+   <ul class="relations">
+	   <?php foreach( $this->relations as $arrRelation ): ?>
+	   <li><a href="<?= $arrRelation['href'] ?>" title="<?= $arrRelation['description'] ?>"><span class="catalog_relation_icon"><?= $arrRelation['image']; ?></span> <?= $arrRelation['title']; ?></a></li>
+	   <?php endforeach; ?>
+	</ul>
+	<?php endif; ?>
+
+	<?php if ( !empty( $this->downloads ) && is_array( $this->downloads ) ): ?>
+    <ul class="downloads">
+        <?php foreach( $this->downloads as $strType => $arrDownload ): ?>
+    	<li><a href="<?= $arrDownload['href'] ?>" rel="nofollow" title="<?= $arrDownload['title'] ?>"><span class="catalog_<?= $strType ?>_icon"><?= $arrDownload['image']; ?></span> <?= $arrDownload['title']; ?></a></li>
+    	<?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
+
+	<?php if ( $this->useSocialSharingButtons ): ?>
+		<?= $this->socialSharingButtons; ?>
+    <?php endif; ?>
+</div>
+</a>

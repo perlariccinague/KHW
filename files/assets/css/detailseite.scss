@@ -29,17 +29,13 @@
   padding: 15px 20px 50px 20px;
   margin-bottom: 20px;
 
-  h2 a {
+  h2 {
     color: #fff;
     font-size: 32px;
     line-height: 133%;
     font-weight: 400;
     text-decoration: none;
     text-transform: uppercase;
-    transition: filter 250ms;
-    &:hover {
-     color: $maroon-transparent
-    }
   }
   .location {
     color: white;
@@ -58,10 +54,14 @@
     }
     p {
       color: white;
-      font-size: 21px;
+      font-size: 20px;
       margin-bottom: 5px;
       line-height: 130%;
     }
+  }
+  .time {
+    color: white;
+    font-size: 26px;
   }
 }
 
@@ -155,12 +155,10 @@
 
 .information, .buch .main-text {
   h2 {
-    padding: 3px 12px;
     font-weight: 700;
     letter-spacing: 1px;
-    background-color: #798cc4;
     display: inline-block;
-    color: white;
+    color: #798cc4;
   }
   h3 {
     color: $maroon;
@@ -179,7 +177,7 @@
 
 .main-text ul, .information ul {
   list-style: disc;
-  list-style-position: inside;
+  list-style-position: outside;
 }
 
 .review {
