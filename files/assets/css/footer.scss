@@ -20,7 +20,7 @@
   justify-content: space-around;
 }
 .footer-collab > div {
-  width: 23%;
+  width: 31%;
 }
 
 .footer-mobile {
@@ -111,14 +111,18 @@
   flex-wrap: wrap;
   justify-content: space-around;
   display: flex;
+  align-items: center;
   .ce_image.block {
     width: 22%;
     margin-bottom: 17px;
     cursor: pointer;
-    img {
-      transition: filter 250ms;
-      &:hover {
-        filter:grayscale(1);
+    figure {
+      text-align: center;
+      img {
+        transition: filter 250ms;
+        &:hover {
+          filter:grayscale(1);
+        }
       }
     }
   }
@@ -178,6 +182,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     display: flex;
+    align-items: center;
     .ce_image {
       width: 40%;
       margin-bottom: 25px;

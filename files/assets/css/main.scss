@@ -2,7 +2,7 @@
 
 #main .inside {
   > .mod_article {
-    > .ce_text, > .ce_image, > .ce_accordion,.mod_eventlist {
+    > .ce_text, > .ce_image, > .ce_accordion,.mod_eventlist,.ce_catalogFilterForm, .mod_catalogUniversalView {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
@@ -154,7 +154,7 @@ h2 {
         width: 200px;
         height: 200px;
         object-fit: cover;
-        object-position: 0 -20px;
+        object-position: center;
       }
     }
     &:last-child {
@@ -196,6 +196,9 @@ h2 {
 #main .inside > .mod_article.banner-image-mobile {
   .ce_image,.ce_text {
     width: 100%;
+    img {
+      width: 100%;
+    }
   }
 }
 
@@ -582,6 +585,18 @@ h2 {
   }
 }
 
+.team-photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  > div {
+    width: 31%;
+    > p:first-child {
+      margin-right: 20px;
+    }
+  }
+}
+
 
 
 @media screen and (max-width: 867px) {
@@ -609,6 +624,10 @@ h2 {
         width: 125px;
       }
     }
+  }
+
+  .team-photos > div {
+    width: 100%;
   }
 
   .teaser-menü,.teaser-menü1 {

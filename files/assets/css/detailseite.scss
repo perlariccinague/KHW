@@ -29,17 +29,13 @@
   padding: 15px 20px 50px 20px;
   margin-bottom: 20px;
 
-  h2 a {
+  h2 {
     color: #fff;
     font-size: 32px;
     line-height: 133%;
     font-weight: 400;
     text-decoration: none;
     text-transform: uppercase;
-    transition: filter 250ms;
-    &:hover {
-     color: $maroon-transparent
-    }
   }
   .location {
     color: white;
@@ -62,6 +58,10 @@
       margin-bottom: 5px;
       line-height: 130%;
     }
+  }
+  .time {
+    color: white;
+    font-size: 26px;
   }
 }
 

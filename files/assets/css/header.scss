@@ -98,7 +98,7 @@
                 background-color: rgba(77, 36, 42, 0.6);
               }
               &:first-child {
-                padding-top: 2px;
+                padding-top: 4px;
               }
               a,strong {
                 padding: 5px 20px;
@@ -164,6 +164,15 @@
   filter: invert(1);
 }
 
+.logo-social {
+  display: flex;
+  > div:first-child {
+    border-right: 4px solid #bbbcbc;
+    padding-right: 25px;
+    margin-right: 25px;
+  }
+}
+
 @media screen and (max-width: 867px) {
   #header .inside .nav-header {
     display: none;
@@ -189,6 +198,17 @@
   }
   #header .header-logo-background .header-logo .ce_text p {
     font-size: 16px;
+  }
+  .logo-social {
+    justify-content: space-between;
+    width: 230px;
+    margin: 0 auto;
+    flex-direction: row-reverse;
+    > div:first-child {
+      border-right: none;
+      padding: 0;
+      margin: 0;
+    }
   }
 }
 
