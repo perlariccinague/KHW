@@ -1,7 +1,7 @@
 
 <div class="event layout_list<?= $this->classList ?>">
 	 <p class="time">
-            Datum der Veranstaltung: <span class="daymonth">
+         <span class="daymonth">
               <?= $this->parseDate("j.", $this->startDate); ?>
               <?= $this->parseDate("m.", $this->startDate); ?>
               <?= $this->parseDate("Y", $this->startDate); ?>
@@ -9,7 +9,7 @@
                <?= $this->parseDate('j.', $this->endDate)?>
                <?= $this->parseDate('m', $this->endDate); ?>
               <?php elseif($this->parseDate('H:i', $this->startTime) !== '00:00'): ?>
-                </span><br>
+         </span><br>
                 Uhrzeit: <span>
                     <?= $this->parseDate('H:i', $this->startTime); ?><?php if($this->endTime): ?> - <?= $this->parseDate('H:i', $this->endTime); ?><?php endif; ?>
                 </span>

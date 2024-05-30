@@ -1,5 +1,31 @@
+<?php
+    $sql = "SELECT `id`, `title`, `categories`, `startDate` FROM tl_calendar_events";
+    $dbQuery = Database::getInstance()->prepare($sql);
+    $dbResult = $dbQuery->execute();
+    $upcomingEvents = [];
+    $today = time();
+    while($row = $dbResult->fetchRow()) {
+        $event = [];
+        $startDate = $row[3];
+        $placeIdArray = unserialize($row[2]);
+        $placeId = $placeIdArray[0] + 4;
+        if($placeId === $this->id && $startDate > $today) {
+            $event[0] = $row[0];
+            $event[1] = $row[1];
+            $event[2] = $placeId;
+            $event[3] = $row[3];
+            array_push($upcomingEvents, $event);
+        }
+    }
+
+?>
+
+<div style="display:none"><?php //var_dump(); ?></div>
+<?php if((str_contains($_SERVER['REQUEST_URI'], 'Tumorzentren') && $this->lic[1] === '1') || (str_contains($_SERVER['REQUEST_URI'], 'veranstaltungen')) && count($upcomingEvents) > 0): ?>
 <a href="<?= $this->masterUrl ?>?category=<?= $this->alias ?>">
     <div class="ctlg_teaser block<?= $this->cssClass ?>">
+      <div style="display:none;">
+      </div>
 
 	<?php if( $this->masterUrl ): ?>
 	    <h3><?= $this->title; ?></h3>
@@ -44,3 +70,4 @@
     <?php endif; ?>
 </div>
 </a>
+<?php endif; ?>

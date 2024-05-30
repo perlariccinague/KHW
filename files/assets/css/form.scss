@@ -137,7 +137,8 @@
 .mod_catalogUniversalView {
   display: none;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 20px;
   > a {
     display: block;
     width: 23%;

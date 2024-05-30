@@ -2,7 +2,7 @@
 
 #main .inside {
   > .mod_article {
-    > .ce_text, > .ce_image, > .ce_accordion,.mod_eventlist,.ce_catalogFilterForm, .mod_catalogUniversalView {
+    > .ce_text, > .ce_image, > .ce_accordion,.mod_eventlist,.ce_catalogFilterForm, .mod_catalogUniversalView, > .hpv-left .ce_text, > .hpv-right .ce_text {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
@@ -37,7 +37,7 @@
         text-align: center;
         color: white;
         padding: 22px  9px;
-        width: 30%;
+        width: 27%;
         font-size: 20px;
         h3 {
           border-top: 1px solid;
@@ -129,6 +129,10 @@ body.high-header #main .inside > .mod_article > .ce_image.header-image img {
   width: 90%;
   max-width: $max-width;
   margin: 40px auto;
+  overflow: visible;
+  div:nth-child(2) {
+    transform: scale(1.2);
+  }
 }
 
 h2 {
@@ -144,6 +148,12 @@ h2 {
   }
   p {
     color: $mediumslateblue;
+  }
+}
+
+.erfahrung .ce_text:not(.teaser-menü,.button) {
+  p, p a {
+    color: white;
   }
 }
 
@@ -598,6 +608,18 @@ h2 {
       line-height: 1.1em;
     }
   }
+  &.störer-left {
+    left: 1%;
+    top: 55vh;
+    width: 180px;
+    a span {
+      width: 180px;
+      height: 180px;
+      transform: rotate(-10deg);
+      font-size: 23px;
+      background: #4e111e;
+    }
+  }
 }
 
 .mobile-only {
@@ -625,8 +647,98 @@ h2 {
   }
 }
 
-.video-article {
-  margin: 40px 0;
+#main .inside > .mod_article.video-article {
+  margin: 135px auto;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  &.loewig-video {
+    > .ce_player {
+      position: relative;
+      width: 20%;
+      cursor: pointer;
+      &.playing:before {
+        display: none;
+      }
+      &:hover:before {
+        opacity: .6;
+      }
+      &:before {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        content: "";
+        background-size: cover;
+        opacity: .4;
+        background-image: url("../layout/play.png");
+        transition: opacity 250ms;
+        pointer-events: none;
+      }
+      video {
+        object-fit: cover;
+      }
+    }
+    > .ce_text {
+      width: 65%;
+      margin: 0;
+    }
+  }
+}
+
+.hpv-right {
+  width: 75%;
+}
+
+.hpv-left {
+  width: 45%;
+}
+
+cms-cookie-bar, cms-accept-tags {
+  --btn-accept-bg-color: #8CA4D1 !important;
+}
+
+.ce_optin_fallback {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  height: 500px;
+  margin: 0 auto;
+  background: #cecece;
+  padding: 15px 40px;
+  text-align: center;
+  box-sizing: border-box;
+  p {
+    background: white;
+    margin: 0;
+    position: relative;
+  }
+  .poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      opacity: .5;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 70px;
+      transform: translate(-50%, -50%);
+      background: url("../layout/youtube.svg") no-repeat 0/contain transparent;
+    }
+  }
 }
 
 
@@ -741,7 +853,14 @@ h2 {
     height: 70vh;
   }
 
-
+  .box-wrapper {
+    div:nth-child(1),div:nth-child(3) {
+      transform: scale(0.9);
+    }
+    div:nth-child(2) {
+      transform: none;
+    }
+  }
 }
 
 @media screen and (max-width: 1200px) {
