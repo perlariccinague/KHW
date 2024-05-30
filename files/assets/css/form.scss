@@ -97,7 +97,10 @@
   margin: 10px 0;
 }
 
-.ce_catalogFilterForm {
+#main .mod_article .ce_catalogFilterForm {
+  h2 {
+    text-align: left;
+  }
   select {
     background: white;
     border: 1px solid gray;
@@ -134,7 +137,8 @@
 .mod_catalogUniversalView {
   display: none;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
+  gap: 20px;
   > a {
     display: block;
     width: 23%;
