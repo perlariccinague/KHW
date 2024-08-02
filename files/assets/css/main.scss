@@ -92,6 +92,16 @@
   }
 }
 
+.enclosure {
+  h3 {
+    color: white;
+    margin-bottom: 0;
+  }
+  li a {
+    color: white;
+  }
+}
+
 body.startpage #footer {
   margin-top: 0;
 }
@@ -216,6 +226,7 @@ h2 {
     width: 100%;
     img {
       width: 100%;
+      transform: translateY(50px);
     }
   }
 }
@@ -653,6 +664,7 @@ h2 {
   justify-content: space-between;
   width: 90%;
   max-width: 1200px;
+  flex-wrap: wrap;
   &.loewig-video {
     > .ce_player {
       position: relative;
@@ -859,6 +871,30 @@ cms-cookie-bar, cms-accept-tags {
     }
     div:nth-child(2) {
       transform: none;
+    }
+  }
+  #main .inside > .mod_article.video-article.loewig-video {
+    > .ce_player,.ce_text {
+      width: 100%;
+    }
+  }
+
+  #main .inside > .mod_article.video-article {
+    margin: 0 auto;
+  }
+
+  .hpv-left,.hpv-right {
+    width: 100%;
+  }
+
+  .ce_text.uta p {
+    padding-left: 0 !important;
+  }
+
+  .campaign .ce_youtube figure {
+    width: 100%;
+    iframe {
+      min-height: auto;
     }
   }
 }

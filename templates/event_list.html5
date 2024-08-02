@@ -34,6 +34,16 @@
     </div>
   <?php endif; ?>
 
+    <?php if ($this->enclosure): ?>
+        <ul class="enclosure">
+            <h3>Downloads</h3>
+            <?php foreach ($this->enclosure as $enclosure): ?>
+                <li class="download-element ext-<?= $enclosure['extension'] ?>">
+                    <a href="<?= $enclosure['href'] ?>" title="<?= $enclosure['title'] ?>"><?= $enclosure['link'] ?> <span class="size">(<?= $enclosure['filesize'] ?>)</span></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 </div>
 
 <?php
