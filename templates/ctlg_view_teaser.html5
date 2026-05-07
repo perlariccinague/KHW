@@ -1,27 +1,34 @@
 <?php
-    $sql = "SELECT `id`, `title`, `categories`, `startDate` FROM tl_calendar_events";
-    $dbQuery = Database::getInstance()->prepare($sql);
-    $dbResult = $dbQuery->execute();
-    $upcomingEvents = [];
+    $upcomingEvents = false;
     $today = time();
-    while($row = $dbResult->fetchRow()) {
-        $event = [];
-        $startDate = $row[3];
-        $placeIdArray = unserialize($row[2]);
-        $placeId = $placeIdArray[0] + 4;
-        if($placeId === $this->id && $startDate > $today) {
-            $event[0] = $row[0];
-            $event[1] = $row[1];
-            $event[2] = $placeId;
-            $event[3] = $row[3];
-            array_push($upcomingEvents, $event);
+    $id = null;
+
+    $sql1 = "SELECT `id`, `alias` FROM tl_mae_event_cat";
+    $dbQuery1 = Database::getInstance()->prepare($sql1);
+    $dbResult1 = $dbQuery1->execute();
+
+    while($row1 = $dbResult1->fetchRow()) {
+        if($this->alias === $row1[1]) {
+            $id = $row1[0];
         }
     }
 
+    $sql = "SELECT CONVERT(`categories` USING utf8) AS `categories`, `startDate`, `published` FROM tl_calendar_events";
+    $dbQuery = Database::getInstance()->prepare($sql);
+    $dbResult = $dbQuery->execute();
+    while($row = $dbResult->fetchRow()) {
+        $placeIdArray = unserialize($row[0]);
+        $placeId = intval($placeIdArray[0]);
+        $startDate = $row[1];
+        $published = $row[2];
+        if($placeId === $id && $startDate > $today && $published === '1') {
+            $upcomingEvents = true;
+        }
+    }
 ?>
 
-<div style="display:none"><?php //var_dump(); ?></div>
-<?php if((str_contains($_SERVER['REQUEST_URI'], 'Tumorzentren') && $this->lic[1] === '1') || (str_contains($_SERVER['REQUEST_URI'], 'veranstaltungen')) && count($upcomingEvents) > 0): ?>
+<div style="display:none"><?php var_dump($this); ?></div>
+<?php if((str_contains($_SERVER['REQUEST_URI'], 'Tumorzentren') && $this->lic[1] === '1') || (str_contains($_SERVER['REQUEST_URI'], 'veranstaltungen')) && $upcomingEvents): ?>
 <a href="<?= $this->masterUrl ?>?category=<?= $this->alias ?>">
     <div class="ctlg_teaser block<?= $this->cssClass ?>">
       <div style="display:none;">
