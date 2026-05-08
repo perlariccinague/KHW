@@ -887,6 +887,23 @@ cms-cookie-bar, cms-accept-tags {
 
 
 @media screen and (max-width: 867px) {
+  #main .inside > .mod_article {
+    &.banner-image {
+      margin-top: 0;
+    }
+    &.banner-image-mobile.mobile-only {
+      display: none;
+    }
+  }
+
+
+
+
+  .teaser-text p {
+    display: block;
+    margin: 10px 0;
+  }
+
   .ce_text figure.float_right {
     float: none;
     text-align: center;

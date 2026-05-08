@@ -227,6 +227,7 @@
   #header .header-logo-background .header-logo {
     padding: 14px 0;
     align-content: center;
+    justify-content: center;
   }
   #header .header-logo-background .header-logo .ce_image {
     &:first-child {
@@ -260,7 +261,7 @@
   .logo-social {
     justify-content: right;
     flex-direction: initial;
-    width: 60%;
+    width: 90%;
     margin: 7px auto;
     gap: 9px;
     height: 37px;
