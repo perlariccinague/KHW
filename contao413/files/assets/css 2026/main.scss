@@ -888,7 +888,7 @@ cms-cookie-bar, cms-accept-tags {
 
 @media screen and (max-width: 867px) {
   #main .inside > .mod_article {
-    &.banner-image {
+    &.banner-image,&.banner-image1 {
       margin-top: 0;
     }
     &.banner-image-mobile.mobile-only {
