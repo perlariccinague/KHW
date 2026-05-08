@@ -1,0 +1,10 @@
+<div class="short-infos">
+    <h2><?= $this->headline ?></h2>
+    <div class="short-infos-inner">
+        <?php foreach($this->infos as $info): ?>
+            <div class="short-info">
+                <p><?php if($info->link): ?><a href="<?= $info->link ?>"><?php endif; ?><?= $info->text ?><?php if($info->link): ?></a><?php endif; ?></p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

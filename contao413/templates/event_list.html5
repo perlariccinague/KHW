@@ -1,0 +1,53 @@
+<div class="event layout_list<?= $this->classList ?>">
+
+  <h2><?= $this->link ?></h2>
+
+
+ <?php if ($this->location): ?>
+    <p class="location"><?= $this->location ?><?php if ($this->address): ?> (<?= $this->address ?>)<?php endif; ?></p>
+  <?php endif; ?>
+  <?php if ($this->addImage): ?>
+    <?php $this->insert('image', $this->arrData); ?>
+  <?php endif; ?>
+
+    <p class="time"><span class="daymonth">
+            <?= $this->parseDate("j.", $this->startDate); ?>
+            <?= $this->parseDate("m.", $this->startDate); ?>
+            <?= $this->parseDate("Y", $this->startDate); ?>
+            <?php if ($this->endDate && $this->endDate !== $this->startDate): ?> -
+                <?= $this->parseDate('j.', $this->endDate)?>
+                <?= $this->parseDate('m', $this->endDate); ?>
+            <?php elseif($this->parseDate('H:i', $this->startTime) !== '00:00'): ?>
+                </span><br><span>
+                    <?= $this->parseDate('H:i', $this->startTime); ?><?php if($this->endTime): ?> - <?= $this->parseDate('H:i', $this->endTime); ?><?php endif; ?>
+                </span>
+        <?php else: ?>
+            </span>
+        <?php endif; ?>
+    </p>
+
+  <?php if ($this->teaser): ?>
+    <div class="ce_text block">
+      <?= $this->teaser ?>
+    </div>
+  <?php endif; ?>
+
+    <?php if ($this->enclosure): ?>
+        <ul class="enclosure">
+            <h3>Downloads</h3>
+            <?php foreach ($this->enclosure as $enclosure): ?>
+                <li class="download-element ext-<?= $enclosure['extension'] ?>">
+                    <a href="<?= $enclosure['href'] ?>" title="<?= $enclosure['title'] ?>"><?= $enclosure['link'] ?> <span class="size">(<?= $enclosure['filesize'] ?>)</span></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+</div>
+
+<?php
+
+// This template is used as an event list template by default, so we only add
+// JSON-LD data in case this is an event without a reader
+if (!$this->hasReader) {
+    $this->addSchemaOrg($this->getSchemaOrgData());
+}

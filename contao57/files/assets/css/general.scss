@@ -1,0 +1,23 @@
+@import "variables";
+@import "header";
+@import "main";
+@import "footer";
+@import "accordion";
+@import "slider";
+@import "form";
+@import "menu";
+@import "detailseite";
+
+
+body {
+  font-family:"Barlow Condensed", sans-serif;
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+

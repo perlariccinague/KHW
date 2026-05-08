@@ -1,0 +1,31 @@
+@import 'variables';
+
+.mod_eventlist.events-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1%;
+  width: 100%;
+  padding: 20px 0;
+  .layout_list {
+    width: 21%;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 0 5px #cecece;
+    color: $maroon;
+    .time,.ce_text,.ce_text p,h2,.daymonth {
+      color: $maroon;
+    }
+    h2 {
+      font-size: 21px;
+      text-transform: none;
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: 867px) {
+  .mod_eventlist.events-home .layout_list {
+    width: 100%;
+  }
+}

@@ -1,0 +1,21 @@
+<div class="teaser-boxes">
+    <?php foreach($this->boxes as $box): ?>
+        <div class="teaser-box">
+            <a <?php if($box->link): ?>href="<?= $box->link ?>"<?php endif; ?>>
+                <div class="teaser-box-inner">
+                    <?php if($box->icon): ?>
+                        <div class="teaser-box-top">
+                            <img class="logo" src="{{file::<?= $box->icon ?>}}" alt="Icon Teaser Box">
+                        </div>
+                    <?php endif; ?>
+                    <div class="teaser-box-middle">
+                        <h3><?= $box->headline ?></h3>
+                    </div>
+                    <div class="teaser-box-bottom">
+                        <p><?= $box->description ?></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <?php endforeach; ?>
+</div>

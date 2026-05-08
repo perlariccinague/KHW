@@ -1,0 +1,80 @@
+<?php
+    $upcomingEvents = false;
+    $today = time();
+    $id = null;
+
+    $sql1 = "SELECT `id`, `alias` FROM tl_mae_event_cat";
+    $dbQuery1 = Database::getInstance()->prepare($sql1);
+    $dbResult1 = $dbQuery1->execute();
+
+    while($row1 = $dbResult1->fetchRow()) {
+        if($this->alias === $row1[1]) {
+            $id = $row1[0];
+        }
+    }
+
+    $sql = "SELECT CONVERT(`categories` USING utf8) AS `categories`, `startDate`, `published` FROM tl_calendar_events";
+    $dbQuery = Database::getInstance()->prepare($sql);
+    $dbResult = $dbQuery->execute();
+    while($row = $dbResult->fetchRow()) {
+        $placeIdArray = unserialize($row[0]);
+        $placeId = intval($placeIdArray[0]);
+        $startDate = $row[1];
+        $published = $row[2];
+        if($placeId === $id && $startDate > $today && $published === '1') {
+            $upcomingEvents = true;
+        }
+    }
+?>
+
+<div style="display:none"><?php var_dump($this); ?></div>
+<?php if((str_contains($_SERVER['REQUEST_URI'], 'Tumorzentren') && $this->lic[1] === '1') || (str_contains($_SERVER['REQUEST_URI'], 'veranstaltungen')) && $upcomingEvents): ?>
+<a href="<?= $this->masterUrl ?>?category=<?= $this->alias ?>">
+    <div class="ctlg_teaser block<?= $this->cssClass ?>">
+      <div style="display:none;">
+      </div>
+
+	<?php if( $this->masterUrl ): ?>
+	    <h3><?= $this->title; ?></h3>
+	<?php else: ?>
+        <h3><?= $this->title; ?></h3>
+    <?php endif; ?>
+	<p>
+      <?= $this->street ?> <?= $this->housenumber ?><br>
+        <?= $this->plz ?> <?= $this->city ?><br>
+    </p>
+
+	<?php if ( !empty( $this->operations ) && is_array( $this->operations ) ): ?>
+	<ul class="operations">
+		<?php foreach( $this->operations as $arrOperation ): ?>
+    	<li class="<?= $arrOperation['class'] ?>">
+        	<a href="<?= $arrOperation['href'] ?>" title="<?= $arrOperation['title']; ?>" <?= $arrOperation['attributes'] ?>>
+				<span class="ctlg_operation_icon"><?= $arrOperation['image']; ?></span> <?= $arrOperation['title']; ?>
+            </a>
+		</li>
+		<?php endforeach; ?>
+   </ul>
+   <?php endif; ?>
+
+   <?php if ( !empty( $this->relations ) && is_array( $this->relations ) ): ?>
+   <ul class="relations">
+	   <?php foreach( $this->relations as $arrRelation ): ?>
+	   <li><a href="<?= $arrRelation['href'] ?>" title="<?= $arrRelation['description'] ?>"><span class="catalog_relation_icon"><?= $arrRelation['image']; ?></span> <?= $arrRelation['title']; ?></a></li>
+	   <?php endforeach; ?>
+	</ul>
+	<?php endif; ?>
+
+	<?php if ( !empty( $this->downloads ) && is_array( $this->downloads ) ): ?>
+    <ul class="downloads">
+        <?php foreach( $this->downloads as $strType => $arrDownload ): ?>
+    	<li><a href="<?= $arrDownload['href'] ?>" rel="nofollow" title="<?= $arrDownload['title'] ?>"><span class="catalog_<?= $strType ?>_icon"><?= $arrDownload['image']; ?></span> <?= $arrDownload['title']; ?></a></li>
+    	<?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
+
+	<?php if ( $this->useSocialSharingButtons ): ?>
+		<?= $this->socialSharingButtons; ?>
+    <?php endif; ?>
+</div>
+</a>
+<?php endif; ?>

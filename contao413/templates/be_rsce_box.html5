@@ -1,0 +1,3 @@
+<?php foreach($this->boxes as $box): ?>
+    <p><?= $box->headline ?></p>
+<?php endforeach; ?>

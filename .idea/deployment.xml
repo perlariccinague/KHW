@@ -5,7 +5,8 @@
       <paths name="server">
         <serverdata>
           <mappings>
-            <mapping deploy="/contao413" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/contao413" local="$PROJECT_DIR$/contao413" web="/" />
+            <mapping deploy="/contao57" local="$PROJECT_DIR$/contao57" web="/" />
           </mappings>
         </serverdata>
       </paths>

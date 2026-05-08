@@ -1,0 +1,17 @@
+<div class="link-boxes">
+    <?php foreach($this->boxes as $box): ?>
+        <div class="link-box">
+            <a <?php if($box->link): ?>href="{{link_url::<?= $box->link ?>}}"<?php endif; ?>>
+                <div class="link-box-inner">
+                    <div class="link-box-left">
+                        <img class="logo" src="{{file::<?= $box->icon ?>}}" alt="Icon Link Box">
+                    </div>
+                    <div class="link-box-right">
+                        <h3><?= $box->headline ?></h3>
+                        <?php if($box->description): ?><p><?= $box->description ?></p><?php endif; ?>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <?php endforeach; ?>
+</div>

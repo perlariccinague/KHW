@@ -1,0 +1,33 @@
+<div class="ctlg_master block">
+
+    <h1><?= $this->title; ?></h1>
+	<?php if ( is_array( $this->catalogEntityFields ) ):  ?>
+    <div class="ctlg_entities">
+    <p>
+        <?= $this->street ?> <?= $this->housenumber ?><br>
+        <?= $this->plz ?> <?= $this->city ?>
+    </p>
+    </div>
+	<?php endif; ?>
+
+	<?php if( $this->contentElements ): ?>
+		<div class="catalog_master_content"><?= $this->contentElements; ?></div>
+	<?php endif; ?>
+
+	<?php if ( !empty( $this->downloads ) && is_array( $this->downloads ) ): ?>
+        <ul class="downloads">
+            <?php foreach( $this->downloads as $strType => $arrDownload ): ?>
+        	<li><a href="<?= $arrDownload['href'] ?>" rel="nofollow" title="<?= $arrDownload['title'] ?>"><span class="catalog_<?= $strType ?>_icon"><?= $arrDownload['image']; ?></span> <?= $arrDownload['title']; ?></a></li>
+        	<?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+
+	<?php if ( $this->useSocialSharingButtons ): ?>
+		<?= $this->socialSharingButtons; ?>
+	<?php endif; ?>
+
+	<?php if( $this->hasGoBackLink ): ?>
+		<p class="back"><a href="<?= $this->goBackLink ?>"><?= $this->goBackLabel; ?></a></p>
+	<?php endif; ?>
+
+</div>
