@@ -8,3 +8,9 @@ if(document.querySelector('.header-bar')) {
     }
   })
 }
+
+if(document.querySelector('li.submenu > a')) {
+  document.querySelectorAll('li.submenu > a').forEach(submenu => {
+    submenu.removeAttribute('href')
+  })
+}
