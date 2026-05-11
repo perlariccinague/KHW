@@ -1,9 +1,12 @@
 <div class="event-boxes">
     <?php foreach($this->boxes as $box): ?>
         <div class="event-box">
-            <a <?php if($box->link): ?>href="{{link_url::<?= $box->link ?>}}"<?php endif; ?>>
+            <?php if($box->link !== ''): ?><a href="{{link_url::<?= $box->link ?>}}"><?php else: ?><div><?php endif; ?>
                 <div class="event-box-inner">
                     <?php if($box->icon): ?>
+                        <div style="display:none">
+                            <?= $box->link ?>
+                        </div>
                         <div class="event-box-top">
                             <img class="logo" src="{{file::<?= $box->icon ?>}}" alt="Icon Teaser Box">
                         </div>
@@ -14,7 +17,7 @@
                         <p><?= $box->text ?></p>
                     </div>
                 </div>
-            </a>
+            <?php if($box->link !== ''): ?></a><?php else: ?></div><?php endif; ?>
         </div>
     <?php endforeach; ?>
 </div>
