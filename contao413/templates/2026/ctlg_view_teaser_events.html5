@@ -1,0 +1,77 @@
+<?php
+
+use Contao\Database;
+
+/**
+ * TEMPLATE: Event direct (sans centres)
+ */
+
+$today = time();
+
+/**
+ * Vérifie si l’événement est publié et futur
+ */
+$startDate = (int) ($this->startDate ?? 0);
+$published = (string) ($this->published ?? '1');
+
+$isValidEvent = ($published === '1' && $startDate > $today);
+
+/**
+ * Vérifie si un filtre Catalog Manager est actif
+ * (on suppose que GET parameters existent)
+ */
+$hasFilter =
+    !empty($_GET['rs_pstl']) ||
+    !empty($_GET['rs_cty']) ||
+    !empty($_GET['rs_dstnc']) ||
+    !empty($_GET['category']);
+
+/**
+ * IMPORTANT :
+ * On n'affiche RIEN si pas de recherche active
+ */
+if (!$hasFilter) {
+    return;
+}
+
+/**
+ * Si event invalide → ne pas afficher
+ */
+if (!$isValidEvent) {
+    return;
+}
+
+?>
+
+<a href="<?= $this->masterUrl ?>/<?= $this->alias ?>" class="ctlg_event_card block<?= $this->cssClass ?>">
+
+    <div class="ctlg_event_inner">
+
+        <!-- TITRE -->
+        <h3><?= $this->title ?></h3>
+
+        <!-- DATE -->
+        <?php if (!empty($this->startDate)): ?>
+            <p class="event-date">
+                <?= date('d.m.Y', $this->startDate) ?>
+            </p>
+        <?php endif; ?>
+
+        <!-- ADRESSE -->
+        <?php if (!empty($this->street) || !empty($this->city)): ?>
+            <p class="event-location">
+                <?= $this->street ?> <?= $this->housenumber ?><br>
+                <?= $this->plz ?> <?= $this->city ?>
+            </p>
+        <?php endif; ?>
+
+        <!-- DESCRIPTION COURTE -->
+        <?php if (!empty($this->teaser)): ?>
+            <div class="event-teaser">
+                <?= $this->teaser ?>
+            </div>
+        <?php endif; ?>
+
+    </div>
+
+</a>

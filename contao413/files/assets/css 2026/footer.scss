@@ -187,6 +187,9 @@
   .footer-mobile {
     display: block;
   }
+  #footer .footer-mobile .footer-top p {
+    text-align: left;
+  }
   .footer-top-mobile {
     text-align: center;
   }
@@ -221,13 +224,35 @@
     }
   }
 
-  .footer-collab {
-    width: 100%;
-  }
   .footer-collab > div {
     width: 50%;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 450px)  {
+  .footer-top {
+    padding-top: 0;
+    & > div {
+      width: 90%;
+    }
+  }
+  .footer-logo-left {
     margin-top: 0;
   }
-
+  .footer-top > div.initiative {
+    margin-bottom: 20px;
+  }
+  .footer-collab > div {
+    width: 45%;
+    margin-top: 0;
+  }
+  .footer-bottom {
+    padding-top: 0;
+  }
+  .footer-logo .footer-logo-inner .ce_image.block {
+    width: 45%;
+    margin-bottom: 0;
+  }
 }
 

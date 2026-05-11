@@ -253,6 +253,9 @@
 
   .short-infos .short-infos-inner .short-info {
     width: 100%;
+    p:before {
+      top: 0;
+    }
   }
 
   .link-boxes .link-box a .link-box-inner .link-box-left {

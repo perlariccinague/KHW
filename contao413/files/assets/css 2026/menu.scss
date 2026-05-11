@@ -58,7 +58,8 @@
   padding: 10px 0;
 }
 
-.mod_navigation .mod_customnav li a,.mobile_menu .mod_navigation li a {
+.mod_navigation .mod_customnav li a,.mobile_menu .mod_navigation li a,
+.mobile_menu .mod_navigation li strong {
   text-decoration: none;
   color: #fff;
   text-transform: uppercase;
