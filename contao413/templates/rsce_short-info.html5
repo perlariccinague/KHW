@@ -3,7 +3,7 @@
     <div class="short-infos-inner">
         <?php foreach($this->infos as $info): ?>
             <div class="short-info">
-                <p><?php if($info->link): ?><a href="<?= $info->link ?>"><?php endif; ?><?= $info->text ?><?php if($info->link): ?></a><?php endif; ?></p>
+                <p><?php if($info->link): ?><a href="<?= \Contao\Controller::replaceInsertTags('{{link_url::'.$info->link.'}}') ?>"><?php endif; ?><?= $info->text ?><?php if($info->link): ?></a><?php endif; ?></p>
             </div>
         <?php endforeach; ?>
     </div>
