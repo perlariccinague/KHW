@@ -9,8 +9,12 @@ if(document.querySelector('.header-bar')) {
   })
 }
 
-if(document.querySelector('li.submenu > a')) {
-  document.querySelectorAll('li.submenu > a').forEach(submenu => {
-    submenu.removeAttribute('href')
-  })
-}
+document.querySelectorAll('li.submenu > a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const li = this.closest('li.submenu');
+
+    li.classList.toggle('is-open');
+  });
+});
