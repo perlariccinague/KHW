@@ -76,13 +76,21 @@ ul {
   list-style: none;
 }
 
-.mod_article .ce_text:not(.button,.header-buttons) p a {
+.mod_article .ce_text:not(.button,.header-buttons) p a,
+.mod_article .ce_text h2 a {
   color: #628fc8;
   text-decoration: underline;
   text-underline-offset: 4px;
   transition: color 500ms ease;
   &:hover {
     color: $maroon;
+  }
+}
+
+.mod_article .ce_text h2 a {
+  color: $maroon;
+  &:hover {
+    color: $mediumslateblue;
   }
 }
 
